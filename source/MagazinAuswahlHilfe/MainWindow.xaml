@@ -1,0 +1,64 @@
+﻿<Window x:Name="Magazin_Auswahl_Hilfe" x:Class="MagazinVorschläger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MagazinVorschläger"
+        mc:Ignorable="d"
+        KeyDown="OnKeyDown"
+        Title="Magazin Auswahl Hilfe - Von Ibrahim Özhan - 2023" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen" Height="600">
+    <Grid>
+        <Viewbox x:Name="View_Error" Stretch="Fill" Width="800" Height="800">
+            <Grid Height="786" Width="800">
+                <Label x:Name="Label_Error" Content="Error" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0,-3,0,218" HorizontalAlignment="Center" VerticalAlignment="Center" Height="1000" Width="1000"/>
+                <Button x:Name="Button_Error" Margin="334,428,334,329" Click="Button_ErrorOK" Content="OK"/>
+            </Grid>
+        </Viewbox>
+        <Viewbox x:Name="View_Main" Height="800" Stretch="Fill" Width="800">
+            <Grid Height="786" Width="800">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label x:Name="Label_Name" Content="Name:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" Height="26" Width="100"/>
+                <Label x:Name="Label_In" Content="Input:" HorizontalAlignment="Left" Margin="11,9,0,0" VerticalAlignment="Top" Height="26" Width="40"/>
+                <Label x:Name="Label_KA" Content="Kernaußen (mm):" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" Height="26" Width="100"/>
+                <Label x:Name="Label_KI" Content="Kerninnen (mm):" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Height="26" Width="97"/>
+                <Label x:Name="Label_KH" Content="Kernhöhe (mm):" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" Height="26" Width="95"/>
+                <Label x:Name="Label_WZ" Content="Windungszahl:" HorizontalAlignment="Left" Margin="11,164,0,0" VerticalAlignment="Top" Height="26" Width="88"/>
+                <Label x:Name="Label_WB" Content="Wickelbereich (°):" HorizontalAlignment="Left" Margin="11,191,0,0" VerticalAlignment="Top" Height="26" Width="101"/>
+                <Label x:Name="Label_DA" Content="Drähte Anzahl:" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="101" Margin="11,219,0,0"/>
+                <TextBox x:Name="Box_Name" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" Height="30" Margin="75,38,0,0"/>
+                <TextBox x:Name="Box_KA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="167,69,0,0"/>
+                <TextBox x:Name="Box_KI" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="167,100,0,0"/>
+                <TextBox x:Name="Box_KH" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="167,131,0,0"/>
+                <TextBox x:Name="Box_WZ" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="167,162,0,0"/>
+                <TextBox x:Name="Box_WB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="167,189,0,0"/>
+                <TextBox x:Name="Box_DA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="167,219,0,0"/>
+                <CheckBox x:Name="Check_Flachdraht" Click="CheckBox_Flachdraht" Content="Flachdraht Verwenden?" HorizontalAlignment="Left" Margin="10,393,0,0" VerticalAlignment="Top" Height="15" Width="143"/>
+                <Button x:Name="Button_Berechnen" Content="Magazin Berechnen" HorizontalAlignment="Left" Click="Button_MagazinBerechnen" Margin="10,478,0,0" VerticalAlignment="Top" Height="42" Width="160"/>
+                <Button x:Name="Button_Print" Content="Drucken" HorizontalAlignment="Left" Click="Button_PrintFile" Margin="11,525,0,0" VerticalAlignment="Top" Height="42" Width="160"/>
+                <Label x:Name="Label_RS" Content="Restloch Sicherheit (mm):" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="151" Margin="11,286,0,0"/>
+                <TextBox x:Name="Box_RS" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="167,286,0,0"/>
+                <DocumentViewer x:Name="Preview" Margin="250,9,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="540" Height="735" Grid.RowSpan="3"/>
+                <Viewbox x:Name="View_Rund" HorizontalAlignment="Left" Height="30" Stretch="Fill" VerticalAlignment="Top" Width="197" Margin="10,413,0,0" d:IsHidden="True">
+                    <Grid Height="30" Width="197">
+                        <Label x:Name="Label_DD" Content="Drahtdurchmesser (mm):" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="141"/>
+                        <TextBox x:Name="Box_DD" HorizontalAlignment="Left" VerticalAlignment="Center" Width="40" Height="30" TextChanged="TextBox_TextChanged"  GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="157,0,0,0"/>
+                    </Grid>
+                </Viewbox>
+                <Viewbox x:Name="View_Flach" HorizontalAlignment="Left" Height="60" Stretch="Fill" VerticalAlignment="Top" Width="197" Margin="10,413,0,0">
+                    <Grid Height="60" Width="197">
+                        <Label x:Name="Label_DH" Content="Drahthöhe (mm):" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="100"/>
+                        <Label x:Name="Label_DB" Content="Drahtbreite (mm):" HorizontalAlignment="Left" Margin="1,30,0,0" VerticalAlignment="Top" Height="26" Width="104"/>
+                        <TextBox x:Name="Box_DH" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="157,0,0,0"/>
+                        <TextBox x:Name="Box_DB" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="157,30,0,0"/>
+                    </Grid>
+                </Viewbox>
+                <Label x:Name="Label_DDT" Content="Drahtdurchmesser Toleranz (mm):" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="151" Margin="10,318,0,0" FontSize="9"/>
+                <TextBox x:Name="Box_DDT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="167,316,0,0"/>
+                <Label x:Name="Label_FT" Content="Füllraum Toleranz (cm³)" HorizontalAlignment="Left" VerticalAlignment="Top" Height="26" Width="151" Margin="11,348,0,0"/>
+                <TextBox x:Name="Box_FT" HorizontalAlignment="Left" VerticalAlignment="Top" Width="40" Height="30" TextChanged="TextBox_TextChanged" GotFocus="TextBox_GotFocus" LostFocus="TextBox_LostFocus" PreviewTextInput="TextBox_PreviewInput" InputScope="Number" Margin="167,346,0,0"/>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</Window>
